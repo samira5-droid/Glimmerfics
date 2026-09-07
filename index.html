@@ -1,35 +1,4 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090b12"><title>Hogwarts Legacy — Samira Wellington</title><link rel="stylesheet" href="style.css"></head>
-<body><div class="stars" aria-hidden="true"></div><header class="topbar"><div class="brand">HOGWARTS LEGACY</div><div class="chapter" id="chapterLabel">Original Story</div><button class="ghost" id="restart" type="button">Restart</button></header><main class="shell"><section class="hero"><p class="eyebrow">Interactive story</p><h1>Samira Wellington</h1><p class="sub">Ravenclaw · Fifth Year</p></section><article class="story-card" aria-live="polite"><div class="story-meta"><span id="location">Hogwarts</span><span id="progress">Loading story…</span></div><div id="story" class="story"><p>Loading the story…</p></div><div id="choices" class="choices"></div><form id="customForm" class="custom" autocomplete="off"><label for="customChoice">Or write what you want to do</label><div class="custom-row"><input id="customChoice" name="customChoice" maxlength="180" placeholder="What do you do?"><button type="submit">Choose</button></div></form></article><aside class="journal" id="journal"><div><span class="dot"></span><span>Story state is saved in this browser.</span></div><div id="relationshipState">Sebastian · 0 | Ominis · 0 | Anne · 0</div></aside></main><script src="script.js?v=20260907-4"></script><script>
-/* Mobile-safe emergency renderer: if the external story script is blocked or errors,
-   the page still opens with the first playable scenes instead of staying on Loading. */
-(function(){
-  setTimeout(function(){
-    var story=document.getElementById('story');
-    var choices=document.getElementById('choices');
-    if(!story||!choices||!story.textContent.trim().startsWith('Loading the story')) return;
-    var scenes=[
-      {loc:'Hogwarts Library · After Midnight',text:'The library has gone so quiet that you can hear the old stone settling around you. Your father\'s resonance notes lie open beneath Sebastian\'s unfinished diagram.\n\nThe ink on the page shimmers.',c:['Ask Ominis what he can sense.','Move closer to Sebastian and examine the diagram.','Touch the silver line in the parchment.','Tell them exactly what your father wrote.']},
-      {loc:'Hogwarts Library',text:'The silver line brightens beneath your fingertip. It feels like a thread of cold magic running through the page—and impossibly, through your wand.\n\nOminis lifts his head. “There. Don\'t move.”\n\nSebastian stares at your hand. “That\'s resonance. It\'s responding to you.”',c:['Let Ominis examine the resonance.','Ask Sebastian what he thinks it means.','Pull your hand away.','Try to follow the sensation.']},
-      {loc:'The Undercroft',text:'By the time the three of you reach the Undercroft, the castle is asleep. Sebastian spreads the diagram across the table. Ominis lights the room with a low wand-glow.\n\n“If the vision was real,” Sebastian says, “your father found a place where the frequency could be amplified.”\n\nOminis goes quiet. “And places built to amplify old magic are rarely built for harmless reasons.”',c:['Ask what kind of place could amplify it.','Tell Sebastian to show you the part he has been hiding.','Suggest taking the notes to Professor Sharp.','Ask whether the resonance could help Anne.']},
-      {loc:'Hogwarts Library · The Night Before',text:'Two days remain before Hogsmeade weekend. The plan is simple on paper: leave Hogwarts, reach the Gaunt mausoleum, get the journal and catacomb maps, and return before anyone notices.\n\nNothing about it feels simple.',c:['Prepare the resonance notes.','Meet Sebastian in the Undercroft.','Find Ominis and go over the blood wards.','Write a private plan for all three of you.']}
-    ];
-    var n=0;
-    function render(){
-      var s=scenes[n];
-      document.getElementById('chapterLabel').textContent='Episode III · The First Resonance';
-      document.getElementById('progress').textContent='Scene '+(n+1)+' / '+scenes.length;
-      document.getElementById('location').textContent=s.loc;
-      story.innerHTML=s.text.split(/\n\n/).map(function(p){return '<p>'+p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</p>';}).join('');
-      choices.innerHTML='';
-      s.c.forEach(function(label){
-        var b=document.createElement('button'); b.className='choice'; b.textContent=label;
-        b.onclick=function(){ if(n<scenes.length-1){n++;render();window.scrollTo(0,0);} else {story.innerHTML='<p>The three of you exchange a look. Tomorrow, you leave the safety of Hogwarts behind.</p><p>And for the first time, the plan feels real.</p>';choices.innerHTML='';document.getElementById('progress').textContent='To be continued…';} };
-        choices.appendChild(b);
-      });
-    }
-    render();
-  },1200);
-})();
-</script></body></html>
+<body><div class="stars" aria-hidden="true"></div><header class="topbar"><div class="brand">HOGWARTS LEGACY</div><div class="chapter" id="chapterLabel">Original Story</div><button class="ghost" id="restart" type="button">Restart</button></header><main class="shell"><section class="hero"><p class="eyebrow">Interactive story</p><h1>Samira Wellington</h1><p class="sub">Ravenclaw · Fifth Year</p></section><article class="story-card" aria-live="polite"><div class="story-meta"><span id="location">Hogwarts</span><span id="progress">Loading story…</span></div><div id="story" class="story"><p>Loading the story…</p></div><div id="choices" class="choices"></div><form id="customForm" class="custom" autocomplete="off"><label for="customChoice">Or write what you want to do</label><div class="custom-row"><input id="customChoice" name="customChoice" maxlength="180" placeholder="What do you do?"><button type="submit">Choose</button></div></form></article><aside class="journal" id="journal"><div><span class="dot"></span><span>Story state is saved in this browser.</span></div><div id="relationshipState">Sebastian · 0 | Ominis · 0 | Anne · 0</div></aside></main><script src="script.js?v=20260907-6"></script></body></html>
