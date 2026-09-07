@@ -1,4 +1,4 @@
-const KEY='glimmerfics-hogwarts-v5';
+const KEY='glimmerfics-hogwarts-v6';
 const saved=JSON.parse(localStorage.getItem(KEY)||'null');
 const state=saved||{node:0,sebastian:0,ominis:0,anne:0,custom:[],view:'play'};
 const $=s=>document.querySelector(s); const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
@@ -6,355 +6,610 @@ const effects={sebastian:()=>state.sebastian++,ominis:()=>state.ominis++,anne:()
 function escapeHtml(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
 const EPISODE={title:'Episode III · The First Resonance',scenes:[
-{loc:'Hogwarts Library · After Midnight',text:`The library had gone quiet in the particular way Hogwarts became quiet after midnight. It was not an absence of sound so much as a collection of sounds that had become too distant to notice: the slow sigh of wind against the high windows, the occasional creak of ancient timber, the faint hiss of candle flames fighting the draughts that slipped beneath the doors.
+{loc:'Hogwarts Library · After Midnight',text:`The library had gone so quiet that, for a moment, I wondered whether I was the only person left awake in the entire castle.
 
-Samira had stopped paying attention to the cold hours ago.
+I could hear the wind pressing against the tall windows, the occasional creak of the old shelves, and the soft, almost comforting crackle of the candles scattered across our table. Somewhere far above us, a door closed with a distant thud. The sound travelled through the stone and disappeared again.
 
-Her father's notes were spread across the table in a disorder that would have horrified any sensible scholar. Pages covered one another. Margins were crowded with hurried observations. Several passages had been underlined so many times that the parchment had begun to soften beneath the ink. Beside them lay Sebastian's diagram, still unfinished, its circles and intersecting lines forming a pattern that seemed almost familiar without ever quite becoming understandable.
+I looked down at the mess in front of me.
 
-Sebastian stood opposite her, one hand pressed against the table as he leaned over the parchment. His sleeves were rolled back, his tie had long since lost any resemblance to how it was supposed to be worn, and there was ink along the side of his hand.
+My father's notes covered almost half the table. Some pages were folded over themselves, others were held open beneath ink bottles and books Sebastian had pulled from the library shelves. There were little pieces of parchment everywhere, covered in calculations, symbols and questions I had written in the margins.
 
-Ominis sat on the other side of the table with his wand resting lightly across his palm. He had been quiet for several minutes.
+I should have been tired.
 
-Then the ink moved.
+I was tired.
 
-Samira blinked.
+But every time I tried to look away from my father's handwriting, I remembered why we were here.
 
-A thin silver line appeared between two of her father's notes. It shimmered once, like moonlight caught beneath water.
+Anne.
 
-Sebastian straightened.
+The thought of her was enough to make the exhaustion disappear again.
+
+Across from me, Sebastian was bent over his latest diagram. His sleeves were rolled up, his tie was crooked, and there was a small smear of ink along the side of his hand. He had been staring at the same section for several minutes, occasionally scratching something out and replacing it with another line.
+
+Ominis sat beside the window, his wand resting lightly between his fingers. He had been unusually quiet tonight. I had learned by now that Ominis's silence rarely meant that he had nothing to say. Usually, it meant he was listening to something the rest of us couldn't hear.
+
+I was about to ask him what he sensed when something on the table moved.
+
+I froze.
+
+A thin silver line had appeared across one of my father's pages.
+
+It was so faint that at first I thought it was only the candlelight. Then it shimmered again.
+
+Sebastian lifted his head.
 
 “Did you do that?”
 
+I shook my head.
+
 “No.”
 
-Ominis's head lifted immediately.
+Ominis immediately straightened.
 
-“Don't touch anything.”
+“Don't touch it.”
 
-The three of them stared at the page.
+I hadn't intended to.
 
-For one impossible moment, Samira had the distinct feeling that the parchment was listening to them.` ,choices:[['Ask Ominis what he can sense.', ['ominis']],['Move closer to Sebastian and examine the diagram with him.', ['sebastian']],['Touch the silver line in the parchment.', ['anne']],['Tell them exactly what your father wrote about resonance.', ['anne','ominis']] ]},
-{loc:'Hogwarts Library',text:`The moment Samira's fingertip touched the silver line, the world seemed to draw one careful breath.
+At least, that was what I told myself.
 
-Cold travelled through her hand.
+The silver line slowly travelled between the words my father had written, slipping through the spaces between them as though the ink itself had become liquid. It moved toward Sebastian's diagram.
 
-It was not the cold of winter or stone. It was something deeper—a sensation that seemed to exist somewhere between magic and memory. The silver line brightened beneath her finger and then spread outward, following the grooves of Sebastian's diagram.
+Then it stopped.
 
-Sebastian was beside her before she could pull away.
+Right at the centre.
+
+I felt a strange pressure behind my ribs.
+
+Not pain.
+
+Recognition.
+
+I leaned closer before I could stop myself.
+
+The silver line pulsed once.
+
+And somehow, impossibly, I had the feeling that the parchment was waiting for me.` ,choices:[['Ask Ominis what he can sense.', ['ominis']],['Move closer to Sebastian and study the diagram with him.', ['sebastian']],['Reach out and touch the silver line.', ['anne']],['Tell them everything my father wrote about resonance.', ['anne','ominis']] ]},
+{loc:'Hogwarts Library · The Resonance',text:`I barely had time to think before I reached out.
+
+My fingertip touched the silver line.
+
+Cold shot through my hand.
+
+I gasped and almost pulled away, but then the sensation changed. The cold travelled up my wrist and settled somewhere beneath my skin, not painful but strangely familiar. It felt like standing beside a powerful magical object and hearing it hum before it was even activated.
+
+Only this time, the magic was humming inside me.
+
+The silver line brightened.
+
+Sebastian was beside me instantly.
 
 “Samira.”
 
-She could hear the warning in his voice, but there was wonder there too.
+His hand closed around my wrist when I swayed.
 
-Ominis stood so quickly that his chair scraped against the floor.
+I could feel his fingers against my skin, warm and steady, and for one ridiculous second I became more aware of that than the magic itself.
 
-“There.” His voice had gone very quiet. “I can hear it.”
+Then the library disappeared.
 
-“Hear what?” Sebastian asked.
+I was standing somewhere else.
 
-“A vibration. Very faint. Like a spell being cast somewhere behind a wall.”
+A corridor stretched in front of me, built from pale, ancient stone. I couldn't see where the light came from. There were no torches, no windows, nothing that should have illuminated the passage, yet I could see every crack in the walls.
 
-Samira swallowed.
+I heard something.
 
-The vibration was inside her now.
+A low vibration.
 
-Not painful. Not yet. It pulsed with her heartbeat, and every pulse made another fragment of the diagram brighten. For a moment she saw something that could not possibly have been in the library: a narrow corridor of pale stone, a staircase descending into darkness, and at the very end of it a door bearing the same strange symbol her father had drawn again and again in the margins of his research.
+The same sound Ominis had described.
 
-Then the vision vanished.
+I turned.
 
-Samira staggered.
+At the end of the corridor stood a door.
 
-Sebastian caught her wrist.
+There was a symbol carved into it.
 
-His fingers closed around her skin instinctively, steadying her before she could fall against the table. He did not speak at first. Neither did she.
+My father's symbol.
 
-“You saw something,” he said finally.
+I knew it immediately.
 
-It was not a question.
+I had seen it in his notes so many times that I could have drawn it with my eyes closed.
 
-Across from them, Ominis had gone completely still.` ,choices:[['Tell Sebastian exactly what you saw.', ['sebastian']],['Tell Ominis first and describe the sound as well as the vision.', ['ominis']],['Describe the symbol to both of them.', ['anne']],['Pull away, take a breath, and study your father’s notes again.', ['anne']] ]},
-{loc:'The Undercroft',text:`By the time the three of them reached the Undercroft, the castle above them had settled into sleep.
+I stepped toward it.
 
-The hidden room felt different tonight.
+The closer I came, the louder the vibration became.
 
-Perhaps it was because Samira knew what they were looking for now. Perhaps it was because the vision had left a strange afterimage behind her eyes. The old stone seemed darker than usual, the shadows deeper in the corners, and the water beyond the chamber gave off a faint silver reflection whenever one of the candles moved.
+Then the door moved.
 
-Sebastian spread the diagram across the table.
+Just slightly.
 
-“I've been comparing this with your father's work for days,” he said. “I thought the circles were measurements. They aren't.”
+I reached for it—
 
-He turned the parchment around.
+—and suddenly I was back in the library.
 
-“They're positions.”
+I stumbled against the table.
 
-Ominis frowned. “Positions of what?”
+Sebastian caught me before I fell.
 
-“Magical resonance points.”
+“Easy.”
 
-Samira leaned closer.
+I looked at him, trying to catch my breath.
 
-Sebastian tapped one mark, then another. “If your father's theory is right, certain places can strengthen a magical frequency. The magic doesn't have to be stronger by itself. The location makes it louder.”
+Ominis was standing now too.
 
-“And the place you saw?” Ominis asked.
+“What happened?” he asked.
 
-“I think it could be one of them.”
+I opened my mouth, but for a moment no words came.
 
-A silence followed.
+I could still see the door.
 
-Samira thought of Anne.
+I could still hear that sound.
 
-Of the pain she had seen in her face. Of all the promises that had been made and broken around that curse. Of how often hope had appeared only to be taken away again.
+And beneath all of it was the awful certainty that what I had just seen had not been a dream.
 
-“Could it help her?” she asked.
+“You saw something,” Sebastian said quietly.
 
-Sebastian's expression changed.
+I looked down at the silver line.
 
-It was only a fraction of a second, but Samira saw it: hope arriving before caution could stop it.
+It had gone dark again.
 
-“I don't know,” he said. “But I think it might.”
+“Yes,” I whispered.
 
-Ominis's fingers tightened around his wand.
+And suddenly, the little room felt much too small for the three of us.` ,choices:[['Tell Sebastian everything you saw.', ['sebastian']],['Tell Ominis first, including the sound you heard.', ['ominis']],['Describe my father’s symbol to both of them.', ['anne']],['Pull away, breathe, and search my father’s notes for the same symbol.', ['anne']] ]},
+{loc:'The Undercroft · The Theory',text:`We did not stay in the library.
 
-“And what is the cost?”
+There was no discussion about it. Sebastian simply gathered the most important pages, Ominis took the lantern, and I followed them through the castle with my father's notes held tightly against my chest.
 
-Sebastian looked away.` ,choices:[['Ask Sebastian to show you the part of the diagram he has been hiding.', ['sebastian']],['Ask Ominis what worries him about resonance magic.', ['ominis']],['Say that saving Anne is worth investigating a calculated risk.', ['anne']],['Insist that none of you proceeds until the risks are understood.', []] ]},
-{loc:'The Undercroft',text:`Sebastian hesitated for so long that Samira knew there was another page.
+The Undercroft felt colder than usual.
 
-He reached beneath the diagram and pulled out a folded sheet of parchment.
+I noticed it the moment we entered.
 
-“I wasn't finished.”
+The familiar darkness seemed to close around us, and the faint magical glow from Ominis's wand stretched long shadows across the walls. I put the papers down while Sebastian cleared a space on the table.
 
-He unfolded it carefully.
+For a few moments, none of us spoke.
 
-The final section of the diagram was different from the rest. The lines were darker, more intricate, and at the centre was a small circle surrounded by seven marks.
+Then Sebastian unfolded the diagram.
 
-“I think this is a stabilisation pattern,” Sebastian said. “Not a cure. I need you to understand that.”
+“I think I've misunderstood this,” he said.
 
-Samira nodded.
+I looked at him.
 
-“But if the resonance can be controlled, it might interrupt the way the curse feeds itself. Give Anne's magic a chance to settle.”
+“That's reassuring.”
 
-His voice became quieter.
+He gave me a tired smile.
 
-“Give her time.”
+“I was hoping you'd say something more encouraging.”
 
-Hope hurt more than certainty ever could.
+“You've been awake half the night.”
 
-Ominis moved closer to the parchment.
+“So have you.”
 
-“And if it doesn't work?”
+“That isn't the point.”
 
-Sebastian did not answer.
+Ominis made a quiet sound that might have been amusement.
 
-“And if it makes the curse worse?” Ominis continued.
+Sebastian ignored him and pointed to the circles on the parchment.
+
+“These aren't measurements.”
+
+I leaned closer.
+
+“What are they?”
+
+“Positions.”
+
+He traced one of the lines with his finger.
+
+“Places where magical resonance can be amplified. Your father's notes describe magic as a frequency. I think he discovered that certain locations can make that frequency stronger.”
+
+My stomach tightened.
+
+“The corridor.”
+
+Sebastian nodded.
+
+“I think that's what you saw.”
+
+Ominis's expression became serious.
+
+“And what happens if a curse is exposed to that kind of resonance?”
+
+Sebastian looked at him.
 
 “I don't know.”
 
-The words sounded torn from him.
+I hated those words.
 
-Sebastian pushed a hand through his hair and looked suddenly, painfully young.
+I hated how often they had become part of our conversations.
 
-“I don't know,” he repeated. “That's the problem. Every time I think I've found the missing piece, there's another one.”
+I looked at Anne's name in my father's notes.
 
-Samira watched him.
+“Could it help her?”
 
-The confidence was still there, somewhere. But underneath it was exhaustion. Fear. The kind of fear that came from caring so much that failure had become unbearable.
+Sebastian went still.
 
-“I can't stop,” he said. “Every hour I waste is another hour Anne spends in pain.”
+I saw the hope in his eyes before he tried to hide it.
 
-The Undercroft seemed to grow very still.` ,choices:[['Promise Sebastian you will help, but make him rest tonight.', ['sebastian','anne']],['Tell him you understand why he cannot simply stop.', ['sebastian','anne']],['Ask Ominis to help you keep Sebastian grounded.', ['ominis','sebastian']],['Take Sebastian’s hand and tell him he does not have to carry this alone.', ['sebastian','anne']] ]},
-{loc:'Hogwarts Library · Later That Night',text:`It was nearly an hour later when they returned to the library.
+“It might,” he said.
 
-Sebastian had finally agreed to put the diagram away.
+My heart gave a painful little twist.
 
-“Tomorrow,” he said, sliding it carefully into his robes. “I'll finish it tomorrow.”
+“Might?”
+
+“I don't want to promise you something I can't prove.”
+
+For once, Sebastian sounded completely serious.
+
+“If we can control the resonance, it might interrupt the way the curse feeds itself. It could give Anne's magic a chance to stabilise.”
+
+Ominis's fingers tightened around his wand.
+
+“And the cost?”
+
+Sebastian didn't answer.
+
+That frightened me more than anything else he could have said.` ,choices:[['Ask Sebastian to show me the part of the diagram he has been hiding.', ['sebastian']],['Ask Ominis what worries him about resonance magic.', ['ominis']],['Say that if there is even a chance to help Anne, we have to investigate.', ['anne']],['Insist that we understand every risk before we try anything.', []] ]},
+{loc:'The Undercroft · Sebastian',text:`I knew there was another page.
+
+I could see it in the way Sebastian kept one hand over the lower edge of the diagram.
+
+“Sebastian.”
+
+He looked at me.
+
+“What?”
+
+“You're hiding something.”
+
+Ominis sighed softly.
+
+“I was beginning to wonder how long it would take you.”
+
+Sebastian gave him an annoyed look, then reached beneath the diagram and pulled out a folded piece of parchment.
+
+“I wasn't hiding it.”
+
+“You were literally hiding it under the parchment.”
+
+“I was deciding whether it was worth showing you.”
+
+He unfolded it.
+
+The drawing made my breath catch.
+
+At the centre was a small circle surrounded by seven marks. Fine lines connected them, forming a pattern that reminded me of the symbol from my vision.
+
+“I think this is a stabilisation pattern,” Sebastian said.
+
+I stared at it.
+
+“Could it cure her?”
+
+He immediately shook his head.
+
+“No. I need you to understand that. I don't know if anything can cure what Anne has.”
+
+His voice softened.
+
+“But it might give her time.”
+
+Time.
+
+Such a small word.
+
+Such a huge thing to hope for.
+
+I looked at Sebastian.
+
+He was staring at the parchment, but I could tell he wasn't really seeing it anymore.
+
+“You haven't slept,” I said.
+
+“Neither have you.”
+
+“Sebastian.”
+
+He closed his eyes for a moment.
+
+When he opened them again, the usual confidence was gone.
+
+“I can't stop.”
+
+His voice was barely above a whisper.
+
+“Every time I think I've found something, there's another problem. Another piece missing. And while I'm sitting here trying to solve it, Anne is still suffering.”
+
+I didn't know what to say.
+
+I had seen Sebastian angry. Reckless. Determined. Frustrated.
+
+I had rarely seen him afraid.
+
+“I don't know how to do this,” he admitted.
+
+The words hurt to hear.
+
+Not because they were weakness.
+
+Because I knew how much courage it had taken him to say them.
+
+I reached across the table.
+
+For a moment I hesitated.
+
+Then I took his hand.
+
+His fingers tightened around mine.
+
+Neither of us spoke.
+
+And somehow, in the silence of the Undercroft, that was enough.` ,choices:[['Promise Sebastian I will help, but make him rest tonight.', ['sebastian','anne']],['Tell him he doesn't have to carry Anne’s fate alone.', ['sebastian','anne']],['Ask Ominis to help me keep Sebastian grounded.', ['ominis','sebastian']],['Keep holding Sebastian’s hand and tell him I’m not going anywhere.', ['sebastian','anne']] ]},
+{loc:'Hogwarts Library · The Pinky Promise',text:`When we returned to the library, I realised just how late it had become.
+
+The candles had burned down almost to their holders. My eyes felt heavy, and every muscle in my shoulders ached from sitting in the same position for hours.
+
+Sebastian still had the diagram in his hands.
+
+“Tomorrow,” he said.
+
+I raised an eyebrow.
+
+“Tomorrow what?”
+
+“I'll finish it.”
 
 “You said that yesterday.”
 
-“I was optimistic.”
+“I was optimistic yesterday.”
 
 “You were awake until three.”
 
-“That is an entirely separate issue.”
+“That is completely unrelated.”
 
-Samira looked at him.
+I stared at him.
 
-Sebastian lasted approximately two seconds before sighing.
+He stared back.
+
+Then he sighed.
 
 “Fine.”
 
-She held out her little finger.
+I held out my little finger.
 
-He stared at it.
+Sebastian looked at it as though I had presented him with an especially complicated potion ingredient.
 
-“What is that supposed to mean?”
+“What are you doing?”
 
-“A promise.”
+“Making sure you actually sleep.”
 
-“I know what a pinky is, Samira.”
-
-“Then you know what to do.”
-
-For once, Sebastian had no clever answer.
-
-Slowly, almost reluctantly, he hooked his little finger around hers.
-
-“Fine,” he murmured. “Pinky promise. I'll sleep.”
-
-His hand remained there for one heartbeat longer than necessary.
-
-Then Ominis cleared his throat from across the table.
-
-“I feel I should be charging admission.”
-
-Samira laughed before she could stop herself.
-
-Sebastian rolled his eyes.
-
-“You're insufferable.”
-
-“And yet you keep inviting me.”
-
-“I didn't invite you.”
-
-“You came anyway.”
-
-The laughter faded gradually, leaving something warmer in its place.
-
-For a brief moment, none of them were thinking about curses, vaults, blood wards or impossible magic.
-
-They were simply three students sitting in an ancient library long after they were supposed to be asleep.
-
-And somehow, that made the danger waiting for them feel even more real.` ,choices:[['Smile at Sebastian and keep the promise between you.', ['sebastian']],['Tease Ominis about being jealous.', ['ominis']],['Ask Ominis what he has been researching.', ['ominis']],['Let the moment pass and return to the mystery of the resonance.', ['anne']] ]},
-{loc:'Hogwarts Library · The Gaunt Vault',text:`Ominis's voice changed when he began speaking about his family.
-
-Not dramatically. He did not lower it into a whisper or become visibly angry. If anything, he became more controlled.
-
-That was what made Samira listen more carefully.
-
-“The vault isn't beneath the main house,” he explained. “It's in the family mausoleum. About a mile away.”
-
-“A mausoleum?” Sebastian asked.
-
-“Of course,” Ominis said dryly. “The Gaunts have never been particularly fond of cheerful architecture.”
-
-Samira smiled faintly, but the humour disappeared when he continued.
-
-“There are blood wards. Old ones. If my family reinforced them, they may recognize me before they recognize anyone else.”
-
-“And that's why you have to go?” Samira asked.
+“You think a pinky promise is going to stop me?”
 
 “Yes.”
 
-Ominis paused.
+“That is absurd.”
 
-“There may be a journal inside. Old records. Catacomb maps. If the symbol in your father's notes is connected to the Gaunts, that journal could tell us where the resonance chamber is.”
+“Then you have nothing to lose.”
 
-Sebastian leaned back.
+He shook his head, but there was a smile hiding at the corner of his mouth.
+
+Slowly, he hooked his little finger around mine.
+
+“Fine,” he murmured. “Pinky promise.”
+
+For a second, neither of us moved.
+
+His hand was warm.
+
+I became suddenly aware of how close we were standing.
+
+Then Ominis cleared his throat.
+
+“I feel I should be charging admission.”
+
+I laughed.
+
+Sebastian groaned.
+
+“You're insufferable.”
+
+“And yet,” Ominis replied, “you continue to bring me along.”
+
+“I didn't bring you.”
+
+“No. I followed you.”
+
+The tension broke.
+
+For a few minutes, we simply talked.
+
+No curse.
+
+No resonance.
+
+No vault.
+
+Just us.
+
+I wished I could keep that moment somewhere safe.
+
+Because I knew what was coming.
+
+And somehow, the knowledge made every quiet moment feel more precious.` ,choices:[['Keep the promise between Sebastian and me to myself.', ['sebastian']],['Tease Ominis about being jealous.', ['ominis']],['Ask Ominis what he has been thinking about all night.', ['ominis']],['Return to the notes and focus on what comes next.', ['anne']] ]},
+{loc:'Hogwarts Library · The Gaunt Vault',text:`Ominis became quieter when he began talking about his family.
+
+I had noticed it before, but tonight I understood what it meant.
+
+He wasn't simply remembering.
+
+He was preparing himself.
+
+“The vault is in the family mausoleum,” he said. “About a mile from the main house.”
+
+I looked at him.
+
+“A mausoleum?”
+
+“Of course.” A faint smile crossed his face. “The Gaunts have never been particularly fond of cheerful architecture.”
+
+I smiled, but it disappeared when he continued.
+
+“There are blood wards. Old ones. If they are still active, they will recognise me.”
+
+“And that's good?” Sebastian asked.
+
+“Not necessarily.”
+
+Ominis turned his face slightly toward us.
+
+“There may be a journal inside. My family kept records of almost everything they considered important. There may also be maps of the catacombs.”
+
+My father's symbol flashed through my mind.
+
+“The journal could tell us where the resonance chamber is.”
+
+“Yes.”
+
+Sebastian leaned over the table.
+
+“When?”
+
+Ominis didn't hesitate.
 
 “Hogsmeade weekend.”
 
-Ominis nodded.
+I frowned.
 
 “The plan is simple. We slip out, I handle the blood wards, we're in and out before anyone notices.”
 
-Samira stared at him.
+I stared at him.
 
-“That's your definition of simple?”
+“That is your definition of simple?”
 
-A faint smile touched his mouth.
+A small smile appeared.
 
 “I said the plan was simple. I didn't say it was safe.”
 
-The words stayed with her.
+I should have laughed.
 
-For the first time, Samira understood that going there would not simply be another adventure.
+Instead, I looked at his face.
 
-For Ominis, it meant returning to a place he had spent years trying to leave behind.` ,choices:[['Ask Ominis whether he is afraid to go back.', ['ominis']],['Ask him exactly how the blood wards work.', ['ominis']],['Tell him he will not face the Gaunts alone.', ['ominis','anne']],['Ask Sebastian what he thinks they should prepare before leaving Hogwarts.', ['sebastian']] ]},
-{loc:'Hogwarts Library · Before Dawn',text:`The candles had burned low by the time they finally stopped talking.
+For Ominis, this wasn't just another secret passage or forbidden room.
 
-Ominis stood near the window, his face turned toward the darkness beyond the glass.
+He would be going back to a place connected to everything he had spent years trying to escape.
 
-Samira approached him slowly.
+“Are you afraid?” I asked.
 
-“You're not like them,” she said.
+He was silent.
 
-He did not move.
+Then he answered honestly.
+
+“Yes.”
+
+The single word settled between us.
+
+I stepped closer.
+
+“You won't be alone.”
+
+His expression changed.
+
+“You shouldn't make promises like that lightly, Samira.”
+
+“I don't.”
+
+For a moment, he simply looked in my direction.
+
+Then he nodded.
+
+“I know.”` ,choices:[['Ask Ominis exactly how the blood wards work.', ['ominis']],['Tell Ominis I will be beside him when we enter the vault.', ['ominis','anne']],['Ask Sebastian what we should prepare before Hogsmeade weekend.', ['sebastian']],['Tell them both that we are going to get that journal.', ['ominis','sebastian','anne']] ]},
+{loc:'Hogwarts Library · Before Dawn',text:`The first pale light of dawn was beginning to appear beyond the windows when we finally stopped.
+
+I stood beside the table and looked at everything we had gathered.
+
+My father's notes.
+
+Sebastian's diagram.
+
+The symbol from my vision.
+
+The notes about resonance.
+
+And now the plan for the Gaunt mausoleum.
+
+It should have frightened me more than it did.
+
+Maybe it did frighten me.
+
+I just didn't have room for fear anymore.
+
+There were too many things depending on us.
+
+Anne.
+
+The mystery my father had left behind.
+
+Sebastian, who kept trying to carry everything himself.
+
+Ominis, who was preparing to walk back into the darkest part of his family's history.
+
+I looked toward Ominis.
+
+“You're not like them,” I said quietly.
+
+He turned his head toward me.
 
 “You know that, right?”
 
-For a long moment, there was no answer.
+For a moment, he said nothing.
 
-Then Ominis turned his head toward her voice.
+Then he gave the smallest smile.
 
-“I know what you're trying to say.”
+“I know what I'm not.”
 
-“That isn't an answer.”
+He paused.
 
-“No.”
+“And I choose differently every day.”
 
-He gave a quiet breath that might almost have been a laugh.
+The words stayed with me.
 
-“Every day,” he said. “I choose differently every day.”
+Behind us, Sebastian gathered the papers into a neat pile. He had finally agreed to sleep, although I suspected that agreement had required more persuasion than he wanted to admit.
 
-Samira felt the words settle somewhere deep inside her.
+I glanced at him.
 
-Not like a reassurance.
+He caught me looking.
 
-Like a vow.
+“What?”
 
-Behind them, Sebastian gathered the scattered pages into a neat pile. He did not interrupt. He simply watched for a moment before looking away, giving them the privacy neither of them had asked for.
+“Nothing.”
 
-Outside, the first suggestion of dawn was beginning to soften the horizon.
+He smiled.
 
-Hogwarts was waking.
+I smiled back.
 
-None of them had slept.
+Then I looked down at my father's notes one last time.
 
-And yet Samira had the strange certainty that something had changed tonight.
+The silver line had disappeared.
 
-The resonance had answered her.
+But I could still feel the resonance somewhere beneath my skin.
 
-Sebastian had shown her the part of his research he had been afraid to show anyone.
+Two days.
 
-Ominis had told her the truth about the vault.
+That was all we had before Hogsmeade weekend.
 
-And now there was a plan.
+Two days before we would leave the safety of Hogwarts and walk toward the Gaunt family mausoleum.
 
-Not a good plan.
+Two days before we would find out whether my father's research had been pointing us toward a cure—or toward something much more dangerous.
 
-Not a safe one.
+I closed the notebook.
 
-But a plan.
+For the first time, the plan felt real.
 
-Two days until Hogsmeade weekend.
-
-Two days until they left the castle and walked into the world the Gaunts had built.
-
-Samira looked once more at her father's notes.
-
-The silver line had faded.
-
-But she could still feel it beneath her skin.` ,choices:[['Tell Ominis you believe him.', ['ominis']],['Tell Sebastian you are ready to finish the diagram together.', ['sebastian']],['Promise both of them that you will be there when the vault opens.', ['ominis','sebastian','anne']],['Say nothing. Let the silence hold the promise for you.', []] ]}
+And somehow, I knew that after we entered that vault, none of us would come back exactly the same.` ,choices:[['Tell Ominis I believe him.', ['ominis']],['Tell Sebastian I am ready to finish the diagram with him tomorrow.', ['sebastian']],['Promise both of them I will be there when the vault opens.', ['ominis','sebastian','anne']],['Say nothing and let the silence keep the promise for me.', []] ]}
 ]};
 
 function applyTags(tags){(tags||[]).forEach(t=>effects[t]&&effects[t]())}
 function updateMeta(){ $('#chapterLabel').textContent=EPISODE.title; $('#progress').textContent=state.view==='all'?'Complete chapter':'Scene '+Math.min(state.node+1,EPISODE.scenes.length)+' / '+EPISODE.scenes.length; $('#relationshipState').textContent=`Sebastian · ${state.sebastian}  |  Ominis · ${state.ominis}  |  Anne · ${state.anne}`; }
-function renderAll(){
- $('#location').textContent='The complete chapter';
- $('#story').innerHTML=EPISODE.scenes.map((s,i)=>`<section class="chapter-scene"><div class="scene-heading"><span>${i+1}</span><em>${escapeHtml(s.loc)}</em></div>${s.text.split(/\n\n/).map(p=>`<p>${escapeHtml(p)}</p>`).join('')}</section>`).join('');
- $('#choices').innerHTML=''; $('#customForm').style.display='none'; updateMeta();
-}
-function render(){
- if(state.view==='all'){renderAll();return}
- const n=EPISODE.scenes[state.node];
- $('#location').textContent=n.loc; $('#story').innerHTML=n.text.split(/\n\n/).map(p=>`<p>${escapeHtml(p)}</p>`).join('');
- const box=$('#choices'); box.innerHTML='';
- n.choices.forEach((c,i)=>{const b=document.createElement('button');b.className='choice';b.innerHTML=`<span class="num">${i+1}</span><span>${escapeHtml(c[0])}</span>`;b.onclick=()=>{applyTags(c[1]);if(state.node<EPISODE.scenes.length-1)state.node++;else state.node=EPISODE.scenes.length;save();render();window.scrollTo({top:0,behavior:'smooth'});};box.appendChild(b)});
- $('#customForm').style.display='block'; updateMeta();
-}
+function renderAll(){ $('#location').textContent='The complete chapter'; $('#story').innerHTML=EPISODE.scenes.map((s,i)=>`<section class="chapter-scene"><div class="scene-heading"><span>${i+1}</span><em>${escapeHtml(s.loc)}</em></div>${s.text.split(/\n\n/).map(p=>`<p>${escapeHtml(p)}</p>`).join('')}</section>`).join(''); $('#choices').innerHTML=''; $('#customForm').style.display='none'; updateMeta(); }
+function render(){ if(state.view==='all'){renderAll();return} const n=EPISODE.scenes[Math.min(state.node,EPISODE.scenes.length-1)]; $('#location').textContent=n.loc; $('#story').innerHTML=n.text.split(/\n\n/).map(p=>`<p>${escapeHtml(p)}</p>`).join(''); const box=$('#choices'); box.innerHTML=''; if(state.node>=EPISODE.scenes.length){$('#progress').textContent='Episode complete · To be continued';$('#customForm').style.display='none';updateMeta();return} n.choices.forEach((c,i)=>{const b=document.createElement('button');b.className='choice';b.innerHTML=`<span class="num">${i+1}</span><span>${escapeHtml(c[0])}</span>`;b.onclick=()=>{applyTags(c[1]);state.node++;save();render();window.scrollTo({top:0,behavior:'smooth'});};box.appendChild(b)}); $('#customForm').style.display='block'; updateMeta(); }
 function addReaderControls(){const meta=$('.story-meta');if(!meta)return;let btn=document.createElement('button');btn.id='chapterToggle';btn.className='ghost';btn.type='button';btn.textContent='Read whole chapter';btn.onclick=()=>{state.view=state.view==='all'?'play':'all';save();render();window.scrollTo({top:0,behavior:'smooth'});};meta.appendChild(btn)}
-$('#customForm').onsubmit=e=>{e.preventDefault();const v=$('#customChoice').value.trim();if(!v)return;state.custom.push({node:state.node,text:v});$('#customChoice').value='';save();const msg=document.createElement('p');msg.className='thought';msg.innerHTML=`<em>You choose to: ${escapeHtml(v)}</em>`;$('#story').appendChild(msg)};
+$('#customForm').onsubmit=e=>{e.preventDefault();const v=$('#customChoice').value.trim();if(!v)return;state.custom.push({node:state.node,text:v});$('#customChoice').value='';save();const msg=document.createElement('p');msg.className='thought';msg.innerHTML=`<em>I choose to: ${escapeHtml(v)}</em>`;$('#story').appendChild(msg)};
 $('#restart').onclick=()=>{if(confirm('Restart this story from the beginning?')){localStorage.removeItem(KEY);location.reload()}};
 addReaderControls();render();
