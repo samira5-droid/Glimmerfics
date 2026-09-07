@@ -1,70 +1,32 @@
 (() => {
   'use strict';
-
-  const HISTORY_KEY = 'glimmerfics-navigation-v1';
   const STORY_KEY = 'glimmerfics-hogwarts-v12';
+  const HISTORY_KEY = 'glimmerfics-back-v2';
   const $ = (s) => document.querySelector(s);
-
-  const read = () => {
-    try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); }
-    catch (_) { return []; }
-  };
-  const write = (items) => localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(-40)));
-
-  // Keep a snapshot immediately BEFORE every story choice/custom action.
-  // The story engine itself remains untouched; Back simply restores that snapshot.
-  const remember = () => {
+  const read = () => { try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); } catch (_) { return []; } };
+  const write = (a) => localStorage.setItem(HISTORY_KEY, JSON.stringify(a.slice(-50)));
+  const snapshot = () => {
     const current = localStorage.getItem(STORY_KEY);
     if (!current) return;
-    const items = read();
-    if (items[items.length - 1] !== current) {
-      items.push(current);
-      write(items);
-    }
+    const a = read();
+    if (a[a.length - 1] !== current) { a.push(current); write(a); }
   };
-
-  const styleButton = (button) => {
-    button.type = 'button';
-    button.className = 'ghost back-button';
-    button.textContent = '← Back';
-    button.title = 'Go back one choice';
-  };
-
   const install = () => {
-    const topbar = $('.topbar');
-    const restart = $('#restart');
-    if (!topbar || !restart || $('#backButton')) return;
-
-    const back = document.createElement('button');
-    back.id = 'backButton';
-    styleButton(back);
-    back.addEventListener('click', () => {
-      const items = read();
-      if (!items.length) return;
-      const previous = items.pop();
-      write(items);
-      localStorage.setItem(STORY_KEY, previous);
-      location.reload();
+    const top = $('.topbar'), restart = $('#restart');
+    if (!top || !restart || $('#backButton')) return;
+    const b = document.createElement('button');
+    b.id = 'backButton'; b.className = 'ghost back-button'; b.type = 'button'; b.textContent = '← Back';
+    b.addEventListener('click', () => {
+      const a = read();
+      if (!a.length) return;
+      const previous = a.pop();
+      write(a); localStorage.setItem(STORY_KEY, previous); location.reload();
     });
-    topbar.insertBefore(back, restart);
-
-    const refresh = () => {
-      back.disabled = read().length === 0;
-      back.setAttribute('aria-disabled', String(back.disabled));
-    };
-    refresh();
-    setInterval(refresh, 250);
+    top.insertBefore(b, restart);
+    const refresh = () => { b.disabled = read().length === 0; b.setAttribute('aria-disabled', String(b.disabled)); };
+    refresh(); setInterval(refresh, 200);
   };
-
-  // Capture before the story engine handles the event.
-  document.addEventListener('click', (event) => {
-    if (event.target.closest('#choices button')) remember();
-  }, true);
-
-  document.addEventListener('submit', (event) => {
-    if (event.target && event.target.id === 'customForm') remember();
-  }, true);
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install);
-  else install();
+  document.addEventListener('click', (e) => { if (e.target.closest('#choices button')) snapshot(); }, true);
+  document.addEventListener('submit', (e) => { if (e.target?.id === 'customForm') snapshot(); }, true);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install); else install();
 })();
