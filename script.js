@@ -8,8 +8,8 @@ async function loadStory(){
   const binary=Uint8Array.from(atob(window.__GLIMMER_DATA_B64),c=>c.charCodeAt(0));
   const stream=new Blob([binary]).stream().pipeThrough(new DecompressionStream('gzip'));
   const text=await new Response(stream).text();
-  const data=JSON.parse(text);
-  window.STORY_PAGES=data.pages; window.EPISODE_THREE=data.episode;
+  const pages=JSON.parse(text);
+  window.STORY_PAGES=pages; window.EPISODE_THREE={scenes:[{loc:'Ravenclaw Tower',text:'The morning arrives too quickly. Your father’s resonance notes, Sebastian’s unfinished diagram, and Ominis’s promise about the Gaunt vault all seem to point toward the same mystery.',choices:[{label:'Find Sebastian.',next:1,tags:['sebastian']},{label:'Find Ominis.',next:2,tags:['ominis']},{label:'Go to the library alone.',next:3}]}]};
   if(state.page>STORY_PAGES.length) state.page=0;
   renderPage();
 }
