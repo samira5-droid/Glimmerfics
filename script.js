@@ -464,16 +464,9 @@ The journal.
 
 And, if my father's research was right, the first real chance we had found to help Anne.`,[])
 };
-// Fix the intentionally split identifier without changing the readable story data.
-nodes.ominis_risk=nodes['ominis_risk']||nodes['ominis_risk'];
 function applyCustom(text){state.custom.push(text);state.history.push({id:state.node,choice:'Custom action: '+text});state.node='pinky';save();render()}
-function render(){const n=nodes[state.node]||nodes.start;$('#chapterLabel').textContent='Episode III · The First Resonance';$('#location').textContent=n.loc;$('#progress').textContent=state.node==='vault_plan'?'Episode ending':'Continue the story';
-$('#story').innerHTML=n.text.split(/\n\n/).map(p=>'<p>'+esc(p)+'</p>').join('');
-$('#choices').innerHTML=n.choices.map((c,i)=>'<button type="button" data-i="'+i+'">'+(i+1)+'. '+esc(c[0])+'</button>').join('');
-$('#choices').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>choose(+b.dataset.i)));
-$('#relationshipState').textContent='Sebastian · '+state.sebastian+' | Ominis · '+state.ominis+' | Anne · '+state.anne;
-}
+function render(){const n=nodes[state.node]||nodes.start;$('#chapterLabel').textContent='Episode III · The First Resonance';$('#location').textContent=n.loc;$('#progress').textContent=state.node==='vault_plan'?'Episode ending':'Continue the story';$('#story').innerHTML=n.text.split(/\n\n/).map(p=>'<p>'+esc(p)+'</p>').join('');$('#choices').innerHTML=n.choices.map((c,i)=>'<button type="button" data-i="'+i+'">'+(i+1)+'. '+esc(c[0])+'</button>').join('');$('#choices').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>choose(+b.dataset.i)));$('#relationshipState').textContent='Sebastian · '+state.sebastian+' | Ominis · '+state.ominis+' | Anne · '+state.anne}
 function choose(i){const n=nodes[state.node],c=n.choices[i];if(!c)return;state.history.push({id:n.id,choice:c[0]});effect(c[2]);state.node=c[1];save();render()}
-$('#customForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#customChoice').value.trim();if(v) {$('#customChoice').value='';applyCustom(v)}});
+$('#customForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#customChoice').value.trim();if(v){$('#customChoice').value='';applyCustom(v)}});
 $('#restart').addEventListener('click',()=>{if(confirm('Restart this story from the beginning?')){state={...blank,flags:{},history:[],custom:[]};save();render()}});
 render();
