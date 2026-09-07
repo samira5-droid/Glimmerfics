@@ -1,13 +1,13 @@
 (() => {
   'use strict';
   const $ = (s) => document.querySelector(s);
-  const KEY = 'glimmerfics-hogwarts-v8';
+  const KEY = 'glimmerfics-hogwarts-v9';
   const blank = { node: 'start', sebastian: 0, ominis: 0, anne: 0, history: [], custom: [] };
   let state;
   try { state = JSON.parse(localStorage.getItem(KEY) || 'null') || structuredClone(blank); } catch (_) { state = structuredClone(blank); }
   const save = () => localStorage.setItem(KEY, JSON.stringify(state));
   const esc = (s) => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
-  const N = (id, loc, text, choices) => ({ id, loc, text, choices });
+  const N = (id, loc, text, choices, episode = 'Episode III · The First Resonance') => ({ id, loc, text, choices, episode });
   const nodes = {
     start: N('start','Hogwarts Library · After Midnight',`The library had gone so quiet that I could hear the wind worrying at the tall windows. My father's notes covered half the table, Sebastian's diagram lay open beside them, and Ominis sat near the window with his wand resting between his fingers.\n\nWe had been working for hours. None of us had said Anne's name in a while, but she was there in every calculation, every crossed-out theory, every silence.\n\nThen a thin silver line appeared across one of my father's pages. It travelled through the ink and stopped at the centre of Sebastian's diagram.\n\nI froze.\n\n“Did you do that?” Sebastian asked.\n\n“No.”\n\n“Don't touch it,” Ominis said immediately.\n\nThe line pulsed again. I felt something beneath my ribs answer it.\n\nThe parchment was waiting for me.`,[
       ['Ask Ominis what he can sense.','ominis',{ominis:1}],
@@ -15,7 +15,7 @@
       ['Reach out and touch the silver line.','resonance',{anne:1}],
       ['Tell them everything my father wrote about resonance.','notes',{anne:1,ominis:1}]
     ]),
-    ominis: N('ominis','Hogwarts Library · Ominis Listens',`I turned toward Ominis instead of the parchment.\n\n“What can you sense?”\n\nHis expression tightened.\n\n“A vibration,” he said at last. “Very low. It isn't coming from the room. It's coming from whatever your father was studying.”\n\nHe paused.\n\n“It feels old. And it is reacting to you.”\n\nMy stomach tightened.\n\n“To me?”\n\n“Yes. That is what worries me.”`,[
+    ominis: N('ominis','Hogwarts Library · Ominis Listens',`I turned toward Ominis instead of the parchment.\n\n“What can you sense?”\n\nHis expression tightened.\n\n“A vibration,” he said at last. “Very low. It isn't coming from the room. It's coming from whatever your father was studying.”\n\nHe paused.\n\n“It feels old. And it is reacting to you.”\n\nMy stomach tightened.\n\n“To me?”\n\n“Yes. That is what worries me.\n\nBut I can hear something else.”`,[
       ['Ask Ominis to keep listening while I examine the page.','resonance',{ominis:1}],
       ['Ask Sebastian whether his diagram predicted this.','sebastian',{sebastian:1}],
       ['Ignore the warning and touch the silver line.','resonance',{anne:1}]
@@ -78,16 +78,65 @@
       ['Stand beside Ominis and reassure him.','end',{ominis:2}],
       ['Keep the moment focused on Anne and the plan.','end',{anne:2}]
     ]),
-    end: N('end','Hogwarts · Before Dawn',`The castle was beginning to wake when we finally left the library.\n\nNothing was solved. Anne was still cursed. The resonance was still dangerous. The Gaunt vault was waiting for us.\n\nBut the uncertainty no longer felt empty.\n\nIt had a shape now. A map. A door. Seven marks.\n\nAnd two people walking beside me into whatever came next.\n\nI tightened my grip on my notes.\n\nTomorrow, we would find the chamber.`,[
-      ['Continue into the next episode.','start',{anne:1}]
-    ])
+    end: N('end','Hogsmeade Weekend · The Road to the Mausoleum',`The castle was beginning to wake when we finally left the library.\n\nNothing was solved. Anne was still cursed. The resonance was still dangerous. The Gaunt vault was waiting for us.\n\nBut the uncertainty no longer felt empty.\n\nIt had a shape now. A map. A door. Seven marks.\n\nAnd two people walking beside me into whatever came next.\n\nI tightened my grip on my notes.\n\nThis time, we were not going back to the library.\n\nWe were going to the place my father's research had been pointing toward.`,[
+      ['Continue to the Gaunt mausoleum.','chamber',{anne:1}]
+    ]),
+
+    chamber: N('chamber','Gaunt Mausoleum · The Blood Wards',`The mausoleum stood beyond the edge of the grounds, half-hidden by bare trees and morning mist.\n\nOminis stopped before the iron gate. His face had gone still.\n\n“This is it.”\n\nSebastian glanced at me. “Last chance to turn around.”\n\n“No.”\n\nOminis raised his wand. The wards answered with a low pulse that I felt in my teeth.\n\n“Samira,” he said quietly, “stay close to me.”\n\n“I am.”\n\nThe gate opened.`,[
+      ['Stay close to Ominis and let him guide you through the wards.','echo',{ominis:2}],
+      ['Ask Sebastian to keep the resonance diagram ready.','echo',{sebastian:1}],
+      ['Step forward first and trust the strange pull in the magic.','echo',{anne:1}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    echo: N('echo','Gaunt Mausoleum · The Echo',`Inside, the air felt wrong. Not cold. Listening.\n\nEvery footstep returned a fraction too late.\n\nThen the echo changed.\n\nI heard my own voice say my name.\n\nSamira.\n\nOminis went rigid. “You heard that too.”\n\nBefore I could answer, Sebastian's diagram began to glow through the leather cover. Seven faint points appeared on the floor.\n\nOne of them was directly beneath us.`,[
+      ['Let Ominis locate the source of the voice.','vaultDoor',{ominis:2}],
+      ['Open Sebastian’s diagram and match the seven points.','vaultDoor',{sebastian:2}],
+      ['Answer the voice and ask who is there.','anneSignal',{anne:2}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    vaultDoor: N('vaultDoor','Gaunt Mausoleum · The Hidden Door',`Sebastian knelt beside the glowing marks while Ominis traced the stone with his wand.\n\n“There,” Ominis whispered.\n\nA seam appeared in the floor.\n\nMy father's symbol was carved into it.\n\nFor a moment nobody moved.\n\nThen Sebastian looked at me. “Your father knew this place.”\n\n“I think he knew what was underneath it.”\n\nThe stone began to open.`,[
+      ['Open the door with Sebastian beside me.','journal',{sebastian:2}],
+      ['Let Ominis open it, despite what the vault means to him.','journal',{ominis:2}],
+      ['Wait and examine the symbol for a magical trap.','journal',{anne:1}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    anneSignal: N('anneSignal','Gaunt Mausoleum · Anne’s Echo',`I answered the voice.\n\n“Who are you?”\n\nThe mausoleum fell silent.\n\nThen a second voice came through the stone. Familiar. Frightened.\n\n“Samira?”\n\nMy heart stopped.\n\nSebastian grabbed my shoulder. Ominis turned toward the sound.\n\nIt sounded like Anne.\n\nBut it could not be Anne. She was nowhere near us.\n\nA thin line of silver magic crawled across the floor toward the hidden door.`,[
+      ['Call Anne’s name and follow the silver line.','journal',{anne:3}],
+      ['Stop and ask Ominis whether this could be a magical echo.','journal',{ominis:2}],
+      ['Ask Sebastian to test the resonance before we follow it.','journal',{sebastian:2}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    journal: N('journal','Gaunt Catacombs · The Father’s Journal',`The chamber beyond the door was smaller than I expected. At its centre sat a stone table.\n\nOn it lay a leather-bound journal.\n\nMy father's handwriting covered the first open page.\n\nI knew the sentence before I finished reading it.\n\nIf Samira ever finds this, the resonance has already begun.\n\nMy hands shook.\n\nSebastian read over my shoulder. Ominis stood silently at the doorway.\n\nThe next page contained a warning: resonance can reach across distance, but only when something on the other side is already listening.\n\nAnne's name was written underneath.`,[
+      ['Keep reading, even if the truth hurts.','ritual',{anne:3}],
+      ['Ask Sebastian to read the next page with me.','ritual',{sebastian:2}],
+      ['Ask Ominis what he thinks the warning means.','ritual',{ominis:2}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    ritual: N('ritual','Gaunt Catacombs · The Resonance Chamber',`The journal described a chamber beneath the mausoleum: seven points, one centre, and a living connection on the other side.\n\nNot a cure. A bridge.\n\nIf activated incorrectly, the bridge would strengthen the curse instead of weakening it.\n\nSebastian stared at the diagram. “We can test it.”\n\nOminis shook his head. “Not here. Not without knowing what is waiting.”\n\nI looked at Anne's name again.\n\nFor the first time, helping her felt terrifyingly close.`,[
+      ['Trust Sebastian and prepare a controlled test.','choice',{sebastian:3,anne:1}],
+      ['Trust Ominis and leave the chamber untouched for now.','choice',{ominis:3,anne:1}],
+      ['Use my father’s notes to find a third, safer method.','choice',{anne:3}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    choice: N('choice','Gaunt Catacombs · Three Ways Forward',`We stood around the stone table while the old magic hummed beneath our feet.\n\nThere was no perfect answer. Only choices.\n\nSebastian wanted a chance. Ominis wanted certainty. I wanted Anne alive long enough for us to find both.\n\nI closed the journal.\n\n“We do this carefully,” I said. “Together.”\n\nNeither boy smiled. But both nodded.\n\nSomewhere beneath us, the resonance answered.`,[
+      ['Begin preparing the chamber together.','ep4end',{anne:2}],
+      ['Promise Sebastian you will not let him take the risk alone.','ep4end',{sebastian:2}],
+      ['Promise Ominis you will leave the moment the wards become unstable.','ep4end',{ominis:2}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    ep4end: N('ep4end','Gaunt Catacombs · The Door Opens',`The seven marks lit one after another.\n\nThe final point remained dark.\n\nThen it pulsed.\n\nOnce.\n\nTwice.\n\nA voice whispered through the chamber.\n\nNot Anne this time.\n\nMy father's voice.\n\n“Samira, if you can hear this, do not open the seventh door.”\n\nSebastian looked at me. Ominis tightened his grip on his wand.\n\nBehind us, stone shifted.\n\nA door we had not seen before began to open.`,[
+      ['Step toward the seventh door.','ep5',{anne:2}],
+      ['Stop Sebastian from following immediately.','ep5',{sebastian:2}],
+      ['Ask Ominis what he can hear beyond it.','ep5',{ominis:2}]
+    ], 'Episode IV · The Gaunt Mausoleum'),
+    ep5: N('ep5','Gaunt Catacombs · The Seventh Door',`The door opened onto darkness so complete that even Ominis could not immediately describe what lay beyond it.\n\nThe resonance was stronger here. It pressed against my skin like a second heartbeat.\n\nMy father's journal slipped from the table and fell open at a final hidden page.\n\nThere was only one sentence.\n\nThe seventh door does not lead to a place. It leads to a choice.\n\nI looked at Sebastian. Then Ominis.\n\nWhatever waited beyond that door had been expecting me.`,[
+      ['Take Sebastian’s hand and step forward.','finale',{sebastian:2}],
+      ['Stand beside Ominis and listen before moving.','finale',{ominis:2}],
+      ['Step forward alone and discover what the resonance wants.','finale',{anne:3}]
+    ], 'Episode V · The Seventh Door'),
+    finale: N('finale','The Seventh Door · To Be Continued',`I crossed the threshold.\n\nThe door closed behind us.\n\nFor one breath there was nothing. No castle. No forest. No sound.\n\nThen three things appeared in the darkness: Anne, the outline of my father, and a circle of silver light between them.\n\nI understood the truth at once.\n\nThe resonance had never been leading us to a cure.\n\nIt had been leading us to the person who could change the rules of the curse.\n\nAnd that person was me.\n\nI reached for the light.`,[
+      ['Continue into Episode VI.','start',{anne:2}]
+    ], 'Episode V · The Seventh Door')
   };
   function apply(e){ ['sebastian','ominis','anne'].forEach(k => state[k] += e?.[k] || 0); save(); }
   function render(){
     const n = nodes[state.node] || nodes.start;
-    $('#chapterLabel').textContent = 'Episode III · The First Resonance';
+    $('#chapterLabel').textContent = n.episode;
     $('#location').textContent = n.loc;
-    $('#progress').textContent = n.id === 'end' ? 'Episode ending' : 'Continue the story';
+    $('#progress').textContent = n.id === 'finale' ? 'Episode ending' : 'Continue the story';
     $('#story').innerHTML = n.text.split(/\n\n/).map(p => `<p>${esc(p)}</p>`).join('');
     $('#choices').innerHTML = n.choices.map((c,i) => `<button type="button" data-i="${i}">${i+1}. ${esc(c[0])}</button>`).join('');
     $('#choices').querySelectorAll('button').forEach(b => b.addEventListener('click', () => choose(+b.dataset.i)));
